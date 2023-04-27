@@ -1,5 +1,11 @@
 # @exxili/capacitor-ios-background-push
 
+🚧 Work in Progress
+
+Please note that this plugin is currently under active development and may be subject to changes or updates.
+
+<hr>
+
 A Capacitor plugin designed to handle iOS Silent Push notifications, enabling background updates, processing, and seamless integration with standard push notifications.
 
 
