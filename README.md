@@ -2,6 +2,19 @@
 
 A Capacitor plugin designed to handle iOS Silent Push notifications, enabling background updates, processing, and seamless integration with standard push notifications.
 
+
+<docgen-index>
+
+- [@exxili/capacitor-ios-background-push](#exxilicapacitor-ios-background-push)
+  - [⚠️ iOS-specific Support](#️-ios-specific-support)
+  - [🚀 Getting Started](#-getting-started)
+  - [API](#api)
+    - [registerForRemoteNotifications()](#registerforremotenotifications)
+    - [didReceiveRemoteNotification(...)](#didreceiveremotenotification)
+    - [setupSilentPushListener()](#setupsilentpushlistener)
+
+</docgen-index>
+
 ## ⚠️ iOS-specific Support
 
 This plugin is specifically designed for iOS and does not support Android. It handles Silent Push notifications on iOS devices, providing a seamless integration with standard push notifications.
@@ -76,17 +89,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## API
 
-<docgen-index>
-
-- [@exxili/capacitor-ios-background-push](#exxilicapacitor-ios-background-push)
-  - [⚠️ iOS-specific Support](#️-ios-specific-support)
-  - [🚀 Getting Started](#-getting-started)
-  - [API](#api)
-    - [registerForRemoteNotifications()](#registerforremotenotifications)
-    - [didReceiveRemoteNotification(...)](#didreceiveremotenotification)
-    - [setupSilentPushListener()](#setupsilentpushlistener)
-
-</docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
