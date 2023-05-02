@@ -43,12 +43,6 @@ npx cap sync
 ```js
 import { IOSBackgroundPush } from '@exxili/capacitor-ios-background-push';
 
-// Register for remote notifications
-IOSBackgroundPush.registerForRemoteNotifications();
-
-// Set up a silent push listener
-IOSBackgroundPush.setupSilentPushListener();
-
 // Add a listener for silent push notifications
 IOSBackgroundPush.addListener('SilentNotificationReceived', (data) => {
   console.log('Silent push notification received:', data);
