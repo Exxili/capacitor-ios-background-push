@@ -24,7 +24,7 @@ public class IOSBackgroundPushPlugin: CAPPlugin, UIApplicationDelegate {
         // Perform your tasks within 30 seconds and call the provided completion handler.
             
         // Notify the JavaScript side
-        self.notifyListeners("BgNotificationReceived", data: [
+        self.notifyListeners("SilentNotificationReceived", data: [
             "userInfo": userInfo,
         ], retainUntilConsumed: true)
 

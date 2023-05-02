@@ -12,7 +12,7 @@ export interface IOSBackgroundPushPlugin {
    * @param listenerFunc 
    */
   addListener(
-    eventName: 'remoteNotificationReceived',
+    eventName: 'SilentNotificationReceived',
     listenerFunc: (data: { data: any }) => void,
   ): Promise<PluginListenerHandle> & PluginListenerHandle
 }
