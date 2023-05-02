@@ -34,6 +34,6 @@ public class IOSBackgroundPushPlugin: CAPPlugin {
 
 }
 
-extension Notification.Name {
+public extension Notification.Name {
     static let didReceiveRemoteNotificationForIOSBackgroundPush = Notification.Name("didReceiveRemoteNotificationForIOSBackgroundPush")
 }

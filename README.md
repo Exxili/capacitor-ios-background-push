@@ -11,15 +11,10 @@ A Capacitor plugin designed to handle iOS Silent Push notifications, enabling ba
 
 <docgen-index>
 
-- [@exxili/capacitor-ios-background-push](#exxilicapacitor-ios-background-push)
-  - [⚠️ iOS-specific Support](#️-ios-specific-support)
-  - [🚀 Getting Started](#-getting-started)
-  - [API](#api)
-    - [register()](#register)
-    - [unregister()](#unregister)
-    - [addListener('remoteNotificationReceived', ...)](#addlistenerremotenotificationreceived-)
-    - [Interfaces](#interfaces)
-      - [PluginListenerHandle](#pluginlistenerhandle)
+* [`register()`](#register)
+* [`unregister()`](#unregister)
+* [`addListener('remoteNotificationReceived', ...)`](#addlistenerremotenotificationreceived)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
