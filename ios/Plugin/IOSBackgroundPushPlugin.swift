@@ -31,14 +31,6 @@ public class IOSBackgroundPushPlugin: CAPPlugin, UIApplicationDelegate {
         // Call the completion handler with the appropriate result
         completionHandler(.newData)
     }
-    
-    public func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-            NotificationCenter.default.post(name: .didReceiveRemoteNotificationForIOSBackgroundPush, object: nil, userInfo: [
-                "userInfo": userInfo,
-                "completionHandler": completionHandler
-            ])
-        }
-
 }
 
 public extension Notification.Name {

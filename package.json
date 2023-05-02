@@ -1,6 +1,6 @@
 {
   "name": "@exxili/capacitor-ios-background-push",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "description": "Handles iOS Silent Push notifications for Capacitor apps, enabling background updates, processing, and seamless integration with standard push notifications.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
