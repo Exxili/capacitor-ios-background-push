@@ -2,9 +2,9 @@ import type { PluginListenerHandle } from '@capacitor/core';
 
 export interface IOSBackgroundPushPlugin {
 
-  register(): Promise<void>;
+  // register(): Promise<void>;
 
-  unregister(): Promise<void>;
+  // unregister(): Promise<void>;
 
   /**
    * Called when a silent push notification is received.

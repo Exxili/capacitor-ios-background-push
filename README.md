@@ -1,6 +1,7 @@
 # @exxili/capacitor-ios-background-push
 
-🚧 Work in Progress
+🚧 Alpha Release -  Work in Progress
+Note: The plugin is currently working,  Still work in progress - as/when i get time i will update this to include tests
 
 Please note that this plugin is currently under active development and may be subject to changes or updates.
 
@@ -11,9 +12,7 @@ A Capacitor plugin designed to handle iOS Silent Push notifications, enabling ba
 
 <docgen-index>
 
-* [`register()`](#register)
-* [`unregister()`](#unregister)
-* [`addListener('remoteNotificationReceived', ...)`](#addlistenerremotenotificationreceived)
+* [`addListener('SilentNotificationReceived', ...)`](#addlistenersilentnotificationreceived)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -51,7 +50,7 @@ IOSBackgroundPush.registerForRemoteNotifications();
 IOSBackgroundPush.setupSilentPushListener();
 
 // Add a listener for silent push notifications
-IOSBackgroundPush.addListener('remoteNotificationReceived', (data) => {
+IOSBackgroundPush.addListener('SilentNotificationReceived', (data) => {
   console.log('Silent push notification received:', data);
 });
 ```
@@ -61,6 +60,7 @@ IOSBackgroundPush.addListener('remoteNotificationReceived', (data) => {
 ```swift
 import UIKit
 import Capacitor
+import ExxiliCapacitorIosBackgroundPush
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -77,42 +77,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ```
 
-
 ## API
 
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### register()
+### addListener('SilentNotificationReceived', ...)
 
 ```typescript
-register() => Promise<void>
-```
-
---------------------
-
-
-### unregister()
-
-```typescript
-unregister() => Promise<void>
-```
-
---------------------
-
-
-### addListener('remoteNotificationReceived', ...)
-
-```typescript
-addListener(eventName: 'remoteNotificationReceived', listenerFunc: (data: { data: any; }) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
+addListener(eventName: 'SilentNotificationReceived', listenerFunc: (data: { data: any; }) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
 ```
 
 Called when a silent push notification is received.
 
 | Param              | Type                                           |
 | ------------------ | ---------------------------------------------- |
-| **`eventName`**    | <code>'remoteNotificationReceived'</code>      |
+| **`eventName`**    | <code>'SilentNotificationReceived'</code>      |
 | **`listenerFunc`** | <code>(data: { data: any; }) =&gt; void</code> |
 
 **Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
