@@ -11,10 +11,15 @@ A Capacitor plugin designed to handle iOS Silent Push notifications, enabling ba
 
 <docgen-index>
 
-* [`register()`](#register)
-* [`unregister()`](#unregister)
-* [`addListener('remoteNotificationReceived', ...)`](#addlistenerremotenotificationreceived)
-* [Interfaces](#interfaces)
+- [@exxili/capacitor-ios-background-push](#exxilicapacitor-ios-background-push)
+  - [⚠️ iOS-specific Support](#️-ios-specific-support)
+  - [🚀 Getting Started](#-getting-started)
+  - [API](#api)
+    - [register()](#register)
+    - [unregister()](#unregister)
+    - [addListener('remoteNotificationReceived', ...)](#addlistenerremotenotificationreceived-)
+    - [Interfaces](#interfaces)
+      - [PluginListenerHandle](#pluginlistenerhandle)
 
 </docgen-index>
 
@@ -36,18 +41,10 @@ npm install @exxili/capacitor-ios-background-push
 
 ```bash
 npx cap sync
-```
+``` 
 
-3. Add the following entry to the plugins array in your capacitor.config.json file:
 
-```json
-{
-  "name": "IOSBackgroundPush",
-  "package": "@exxili/capacitor-ios-background-push"
-}
-```
-
-4. Import the plugin in your project and use it to listen for remote notifications:
+3. Import the plugin in your project and use it to listen for remote notifications:
    
 ```js
 import { IOSBackgroundPush } from '@exxili/capacitor-ios-background-push';
@@ -59,12 +56,12 @@ IOSBackgroundPush.registerForRemoteNotifications();
 IOSBackgroundPush.setupSilentPushListener();
 
 // Add a listener for silent push notifications
-IOSBackgroundPush.addListener('silentPushReceived', (data) => {
+IOSBackgroundPush.addListener('remoteNotificationReceived', (data) => {
   console.log('Silent push notification received:', data);
 });
 ```
 
-5. Update your AppDelegate.swift file in your iOS project to handle Silent Push notifications. Add the following method to your AppDelegate class:
+4. Update your AppDelegate.swift file in your iOS project to handle Silent Push notifications. Add the following method to your AppDelegate class:
 
 ```swift
 import UIKit
