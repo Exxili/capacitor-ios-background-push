@@ -1,18 +1,39 @@
-import Foundation
 import Capacitor
+import Foundation
 
-/**
- * Please read the Capacitor iOS Plugin Development Guide
- * here: https://capacitorjs.com/docs/plugins/ios
- */
 @objc(IOSBackgroundPushPlugin)
 public class IOSBackgroundPushPlugin: CAPPlugin {
-    private let implementation = IOSBackgroundPush()
+    // private let backgroundPushHandler = IOSBackgroundPush()
 
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
-        call.resolve([
-            "value": implementation.echo(value)
-        ])
+    override public func load() {
+        // backgroundPushHandler.plugin = self
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveRemoteNotification(notification:)), name: .didReceiveRemoteNotificationForIOSBackgroundPush, object: nil)
     }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc private func didReceiveRemoteNotification(notification: Notification) {
+        guard let userInfo = notification.userInfo?["userInfo"] as? [AnyHashable: Any],
+            let completionHandler = notification.userInfo?["completionHandler"] as? (UIBackgroundFetchResult) -> Void else {
+            return
+        }
+
+        // Handle the remote notification here
+        // Perform your tasks within 30 seconds and call the provided completion handler.
+            
+        // Notify the JavaScript side
+        self.notifyListeners("remoteNotificationReceived", data: [
+            "userInfo": userInfo,
+        ], retainUntilConsumed: true)
+
+        // Call the completion handler with the appropriate result
+        completionHandler(.newData)
+    }
+
+}
+
+extension Notification.Name {
+    static let didReceiveRemoteNotificationForIOSBackgroundPush = Notification.Name("didReceiveRemoteNotificationForIOSBackgroundPush")
 }

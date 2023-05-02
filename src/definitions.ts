@@ -1,5 +1,18 @@
+import type { PluginListenerHandle } from '@capacitor/core';
+
 export interface IOSBackgroundPushPlugin {
-  registerForRemoteNotifications(): Promise<void>;
-  didReceiveRemoteNotification(options: { userInfo: any }): Promise<{ result: number }>;
-  setupSilentPushListener(): Promise<void>;
+
+  register(): Promise<void>;
+
+  unregister(): Promise<void>;
+
+  /**
+   * Called when a silent push notification is received.
+   * @param eventName 
+   * @param listenerFunc 
+   */
+  addListener(
+    eventName: 'remoteNotificationReceived',
+    listenerFunc: (data: { data: any }) => void,
+  ): Promise<PluginListenerHandle> & PluginListenerHandle
 }

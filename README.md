@@ -11,13 +11,10 @@ A Capacitor plugin designed to handle iOS Silent Push notifications, enabling ba
 
 <docgen-index>
 
-- [@exxili/capacitor-ios-background-push](#exxilicapacitor-ios-background-push)
-  - [⚠️ iOS-specific Support](#️-ios-specific-support)
-  - [🚀 Getting Started](#-getting-started)
-  - [API](#api)
-    - [registerForRemoteNotifications()](#registerforremotenotifications)
-    - [didReceiveRemoteNotification(...)](#didreceiveremotenotification)
-    - [setupSilentPushListener()](#setupsilentpushlistener)
+* [`register()`](#register)
+* [`unregister()`](#unregister)
+* [`addListener('remoteNotificationReceived', ...)`](#addlistenerremotenotificationreceived)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -99,36 +96,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### registerForRemoteNotifications()
+### register()
 
 ```typescript
-registerForRemoteNotifications() => Promise<void>
+register() => Promise<void>
 ```
 
 --------------------
 
 
-### didReceiveRemoteNotification(...)
+### unregister()
 
 ```typescript
-didReceiveRemoteNotification(options: { userInfo: any; }) => Promise<{ result: number; }>
+unregister() => Promise<void>
 ```
 
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ userInfo: any; }</code> |
+--------------------
 
-**Returns:** <code>Promise&lt;{ result: number; }&gt;</code>
+
+### addListener('remoteNotificationReceived', ...)
+
+```typescript
+addListener(eventName: 'remoteNotificationReceived', listenerFunc: (data: { data: any; }) => void) => Promise<PluginListenerHandle> & PluginListenerHandle
+```
+
+Called when a silent push notification is received.
+
+| Param              | Type                                           |
+| ------------------ | ---------------------------------------------- |
+| **`eventName`**    | <code>'remoteNotificationReceived'</code>      |
+| **`listenerFunc`** | <code>(data: { data: any; }) =&gt; void</code> |
+
+**Returns:** <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; & <a href="#pluginlistenerhandle">PluginListenerHandle</a></code>
 
 --------------------
 
 
-### setupSilentPushListener()
+### Interfaces
 
-```typescript
-setupSilentPushListener() => Promise<void>
-```
 
---------------------
+#### PluginListenerHandle
+
+| Prop         | Type                                      |
+| ------------ | ----------------------------------------- |
+| **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
 </docgen-api>
