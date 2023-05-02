@@ -73,14 +73,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // ... other existing code ...
 
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        if let plugin = bridge?.getOrLoadPlugin("IOSBackgroundPush") as? IOSBackgroundPush {
-            plugin.didReceiveRemoteNotification([
-                "userInfo": userInfo,
-                "completionHandler": completionHandler
-            ])
-        } else {
-            completionHandler(.failed)
-        }
+        NotificationCenter.default.post(name: .didReceiveRemoteNotificationForIOSBackgroundPush, object: nil, userInfo: [
+            "userInfo": userInfo,
+            "completionHandler": completionHandler
+        ])
     }
 }
 
