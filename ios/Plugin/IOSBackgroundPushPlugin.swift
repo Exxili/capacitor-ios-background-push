@@ -17,6 +17,7 @@ public class IOSBackgroundPushPlugin: CAPPlugin, UIApplicationDelegate {
     @objc private func didReceiveRemoteNotification(notification: Notification) {
         guard let userInfo = notification.userInfo?["userInfo"] as? [AnyHashable: Any],
             let completionHandler = notification.userInfo?["completionHandler"] as? (UIBackgroundFetchResult) -> Void else {
+            let completionHandlerId = notification.userInfo?["completionHandlerId"]
             return
         }
 
@@ -29,6 +30,7 @@ public class IOSBackgroundPushPlugin: CAPPlugin, UIApplicationDelegate {
         ], retainUntilConsumed: true)
 
         // Call the completion handler with the appropriate result
+        
         completionHandler(.newData)
     }
 }
